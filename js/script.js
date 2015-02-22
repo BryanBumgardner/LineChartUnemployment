@@ -1,5 +1,5 @@
 
-<script>
+
 
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
@@ -31,7 +31,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("Unemployment.json", function(error, data) {
+d3.json("js/Unemployment.json", function(error, data) {
   data.forEach(function(d) {
     d.date = parseDate(d.date);
     d.unemployment = +d.unemployment;
@@ -61,4 +61,3 @@ d3.tsv("Unemployment.json", function(error, data) {
       .attr("d", line);
 });
 
-</script>
